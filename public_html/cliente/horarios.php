@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <head>
+
         <title>Rutas</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/stilos.css">
         <script type="text/javascript" src="js/bus.js"></script>
-    </head>
+
     </head>
     <body oncontextmenu="return false" onkeydown="return false" onload="initMap();">
         <br>
@@ -25,14 +25,14 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.html">Sistema de pablo</a>
+                        <a class="navbar-brand" href="index.html">BusLineMap</a>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav nav">
                             <li ><a href="index.html">Home <span class="sr-only">(current)</span></a></li>
-                            <li class="active"><a href="rutas.html">Ver todas las rutas</a></li>
-                            <li><a href="horarios.html">Ver los Horarios</a></li>
+                            <li><a href="rutas.html">Ver todas las rutas</a></li>
+                            <li class="active"><a href="horarios.html">Ver los Horarios</a></li>
                         </ul>
                         <form class="navbar-form navbar-right">
                             <div class="form-group">
@@ -46,20 +46,54 @@
         </div>    
         <!--pagina-->       
         <!--Pagina con el mapa de las ubicaciones de las paradas-->
-        
-        <div id="pagina3" class="container">
-            <h4>Rutas de los Buses Urabanos de la Ciudad de Loja</h4>
-            <div id="map">
-               
-            </div>  
+        <div id="pagina4" class="container">
+            <div class="panel panel-default">
+                <div class="panel-heading">Lista de Horarios de Los BUSES de transporte urbano de Loja</div>
+                <div class="panel-body">
+                    <table class="table table-responsive table-striped">
+                        <thead>
+                            <tr>
+                                <th>Ruta</th>
+                                <th>Hora</th>
+                                <th>Numero de Linea</th>
+                                <th>Concurrrencia</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Virgenpamba - Centro</td>    
+                                <td>06:55H hasta las 20:30H</td>
+                                <td>Linea-3</td>
+                                <td>Cada 30 minutos</td>
+                            </tr>
+                            <tr>
+                                <td>Zalapa - Centro</td>
+                                <td>05:45H <span>hasta las</span> 14:00H</td>
+                                <td>Linea-3</td>
+                                <td>Cada 30 minutos</td>
+                            </tr>
+                            <tr>
+                                <td>Las Pitas - Rosal</td>
+                                <td>05:45H <span>hasta las</span> 14:00H</td>
+                                <td>Linea-1</td>
+                                <td>Cada 20 minutos</td>
+                            </tr>
+                            <tr>
+                                <td>Borja - Isidro Ayora</td>
+                                <td>05:45H <span>hasta las</span> 18:00H</td>
+                                <td>Linea-4</td>
+                                <td>Cada 45 minutos</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
         <!--fin de la pagina-->
         <br>
         <!--Pie de la PAgina-->
-        <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjPZ7jAEFCjZInh-HdL4S3O75-iH9ccJc&callback=initMap">
-        </script>
-        <div class="panel-footer" id="footer">
+        <div class="panel-footer navbar-fixed-bottom" id="footer">
             <h4>Universidad Nacional de Loja</h4>
             <h5>Carrera de Ingeniería en Sistemas</h5>
             <h5></h5>
