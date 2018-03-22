@@ -36,13 +36,13 @@ header("Access-Control-Allow-Origin: *");
                 <?for ($i=0; $i < $aum; $i++) { ?>
                   <div class="panel-heading">
                     <h4 class="panel-title">
-                      <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?echo $i?>"  id="<?echo $id[$i];?>" onclick="activarRuta(this.id)">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?echo $i?>"  id="<?echo $id[$i];?>" onclick="paradas(this.id)">
                         <?echo $nombreLineaBus[$i]."  (". $nombreRuta[$i].")"?>
                       </a>
                     </h4>
                   </div>
                   <div id="collapse<?echo $i?>" class="panel-collapse collapse collapse">
-                    <div class="panel-body"><b>Inicia:</b><?echo " ".$inicioRuta[$i]." "?> </br> <b>Recorrido:</b><?echo " ".$recorrido[$i]." "?> </br><b>Termina: </b><?echo" ".$finRuta[$i]." "?></div>
+                    <div class="panel-body"><b>Inicia:</b><?echo " ".$inicioRuta[$i]." "?> </br><b>Termina: </b><?echo" ".$finRuta[$i]." "?></div>
                   </div>
                 <?}?>
               </div>
@@ -58,7 +58,7 @@ header("Access-Control-Allow-Origin: *");
       var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
-        center: [-4.0291619,-79.2114938],
+        center: [-79.2114938,-4.0291619],
         zoom: 13.4
       });
       // Add geolocate control to the map.
@@ -68,7 +68,7 @@ map.addControl(new mapboxgl.GeolocateControl({
     },
     trackUserLocation: true
 }));
- 
+
       map.on('load', function () {
         creaMapa();
         var lat =<?php echo json_encode($lat); ?>;
@@ -103,6 +103,9 @@ map.addControl(new mapboxgl.GeolocateControl({
             }
           });
         }
+        for(var i=0; i<"<?echo $num?>";i++){
+          map.setLayoutProperty(i.toString(), 'visibility', 'none');
+        }
         <?php
           if (isset($_GET['variable'])) {
             $variable = $_GET['variable'];
@@ -110,7 +113,72 @@ map.addControl(new mapboxgl.GeolocateControl({
           }
         ?>
       });
-    
+  </script>
+  <script>
+  function paradas(id){
+    activarRuta(id);
+    var luno =<?php echo json_encode($luno); ?>;
+    var ldos =<?php echo json_encode($ldos); ?>;
+    var ltres =<?php echo json_encode($ltres); ?>;
+    var lcuatro =<?php echo json_encode($lcuatro); ?>;
+    var lcinco =<?php echo json_encode($lcinco); ?>;
+    var lseis =<?php echo json_encode($lseis); ?>;
+    if (id=="L-1"){
+      for(var i=0; i<"<?echo $num?>";i++){
+        map.setLayoutProperty(i.toString(), 'visibility', 'none');
+      }
+      for(var i=0; i<luno.length ;i++){
+        map.setLayoutProperty(luno[i].toString(), 'visibility', 'visible');
+      }
+
+    }
+
+    if (id=="L-3"){
+      for(var i=0; i<"<?echo $num?>";i++){
+        map.setLayoutProperty(i.toString(), 'visibility', 'none');
+      }
+      for(var i=0; i<ldos.length ;i++){
+        map.setLayoutProperty(ldos[i].toString(), 'visibility', 'visible');
+      }
+
+    }
+    if (id=="L-4"){
+      for(var i=0; i<"<?echo $num?>";i++){
+        map.setLayoutProperty(i.toString(), 'visibility', 'none');
+      }
+      for(var i=0; i<ltres.length ;i++){
+        map.setLayoutProperty(ltres[i].toString(), 'visibility', 'visible');
+      }
+
+    }
+    if (id=="L-5"){
+      for(var i=0; i<"<?echo $num?>";i++){
+        map.setLayoutProperty(i.toString(), 'visibility', 'none');
+      }
+      for(var i=0; i<lcuatro.length ;i++){
+        map.setLayoutProperty(lcuatro[i].toString(), 'visibility', 'visible');
+      }
+
+    }
+    if (id=="L-7"){
+      for(var i=0; i<"<?echo $num?>";i++){
+        map.setLayoutProperty(i.toString(), 'visibility', 'none');
+      }
+      for(var i=0; i<lcinco.length ;i++){
+        map.setLayoutProperty(lcinco[i].toString(), 'visibility', 'visible');
+      }
+
+    }
+    if (id=="L-12"){
+      for(var i=0; i<"<?echo $num?>";i++){
+        map.setLayoutProperty(i.toString(), 'visibility', 'none');
+      }
+      for(var i=0; i<lseis.length ;i++){
+        map.setLayoutProperty(lseis[i].toString(), 'visibility', 'visible');
+      }
+
+    }
+  }
   </script>
   <!-- Footer -->
 <?php include("footer.php"); ?>
